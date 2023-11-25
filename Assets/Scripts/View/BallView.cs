@@ -4,31 +4,32 @@ using UnityEngine;
 
 public class BallView : MonoBehaviour
 {
-    private BallController __controllerBall;
+    private BallController __ballController;
+    public TileController __tileController;
 
     // Start is called before the first frame update
     void Start()
     {
-        __controllerBall = GetComponent<BallController>();
+        __ballController = GetComponent<BallController>();
+        __tileController = GameObject.Find("Tile").GetComponent<TileController>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("brick"))
+        if (collision.gameObject.CompareTag("Breakable"))
         {
-            __controllerBall.PerfectAngleReflect(collision);
-            BrickView __brickView = collision.gameObject.GetComponent<BrickView>();
-            __brickView.PerformTakeDamage(1);
+            __ballController.PerfectAngleReflect(collision);
+
         }
-        else if (collision.gameObject.CompareTag("wall"))
+        else if (collision.gameObject.CompareTag("Wall"))
         {
-            __controllerBall.PerfectAngleReflect(collision);
+            __ballController.PerfectAngleReflect(collision);
         }
         else if (collision.gameObject.CompareTag("Player"))
         {
             print("Player");
-            Vector2 direction = __controllerBall.CalcBallAngleReflect(collision);
-            __controllerBall.AngleChange(direction);
+            Vector2 direction = __ballController.CalcBallAngleReflect(collision);
+            __ballController.AngleChange(direction);
         }
     }
 }
