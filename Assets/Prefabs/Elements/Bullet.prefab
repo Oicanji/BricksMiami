@@ -13,11 +13,11 @@ GameObject:
   - component: {fileID: 4841180023211609915}
   - component: {fileID: 5877843054550221827}
   - component: {fileID: 1656429223286702953}
-  - component: {fileID: 8799450816396175417}
-  - component: {fileID: 1247731945799058192}
+  - component: {fileID: -5494180040127919541}
+  - component: {fileID: -6834558920056148860}
   m_Layer: 0
   m_Name: Bullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -128,7 +128,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8401ee2345a237e4eb0ee3a7991fe94a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!58 &8799450816396175417
+  __tileController: {fileID: 0}
+--- !u!58 &-5494180040127919541
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -162,8 +163,8 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.04
---- !u!50 &1247731945799058192
+  m_Radius: 0.013862073
+--- !u!50 &-6834558920056148860
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -177,7 +178,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 1
+  m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -189,4 +190,4 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 0
