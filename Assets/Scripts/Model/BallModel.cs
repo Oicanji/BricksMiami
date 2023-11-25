@@ -8,7 +8,20 @@ public class BallModel : MonoBehaviour
     [SerializeField] private float __power;
     [SerializeField] private float __limitFragmentation;
     [SerializeField] private Vector2 __direction;
+    [SerializeField] private AudioClip __fragmentEffect;
+    [SerializeField] private AudioClip __fragmentEndEffect;
 
+    public AudioClip FragmentEffect
+    {
+        get => __fragmentEffect;
+        set => __fragmentEffect = value;
+    }
+
+    public AudioClip FragmentEndEffect
+    {
+        get => __fragmentEndEffect;
+        set => __fragmentEndEffect = value;
+    }
     public float LimitFragmentation
     {
         get => __limitFragmentation;

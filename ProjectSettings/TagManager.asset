@@ -44,3 +44,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Player
+    uniqueID: 194266249
+    locked: 0
+  - name: Projectiles
+    uniqueID: 1487000421
+    locked: 0
+  - name: Gui
+    uniqueID: 2424318831
+    locked: 0

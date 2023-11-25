@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class BallController : MonoBehaviour
 {
-    private BallModel __ballModel;
+    public BallModel __ballModel;
     private Rigidbody2D __rigidbodyBall;
+
+    public AudioClip BallHitEncounterEffect { get; internal set; }
+
     // Start is called before the first frame update
     void Start()
     {
