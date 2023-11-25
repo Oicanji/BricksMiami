@@ -4,9 +4,16 @@ using UnityEngine;
 
 public class BallModel : MonoBehaviour
 {
-    [SerializeField]private float __speed;
-    [SerializeField]private float __power;
-    [SerializeField]private Vector2 __direction;
+    [SerializeField] private float __speed;
+    [SerializeField] private float __power;
+    [SerializeField] private float __limitFragmentation;
+    [SerializeField] private Vector2 __direction;
+
+    public float LimitFragmentation
+    {
+        get => __limitFragmentation;
+        set => __limitFragmentation = value;
+    }
 
     public float Speed
     {
