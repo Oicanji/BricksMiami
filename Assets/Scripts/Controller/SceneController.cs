@@ -7,12 +7,17 @@ public class SceneController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.R))
         {
-            CarregarPrimeiraFase();
+            CarregarLevel("level1");
         }
     }
 
-    public void CarregarPrimeiraFase()
+    public void CarregarLevel(string level)
     {
-        SceneManager.LoadScene("level1");
+        SceneManager.LoadScene(level);
+    }
+
+    public void CarregarCenaGameOver()
+    {
+        SceneManager.LoadScene("GameOver");
     }
 }

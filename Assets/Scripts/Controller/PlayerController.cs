@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     private CameraModel __cameraModel;
     private Transform __transform;
     private Transform __transformCharacter;
+    private GameController gameController;
 
     // Start is called before the first frame update
     void Start()
@@ -16,6 +17,8 @@ public class PlayerController : MonoBehaviour
         __transform = GetComponent<Transform>();
         __transformCharacter = __transform.GetChild(0);
         __cameraModel = Camera.main.GetComponent<CameraModel>();
+        gameController = FindObjectOfType<GameController>();
+
     }
 
     // Update is called once per frame
@@ -34,6 +37,31 @@ public class PlayerController : MonoBehaviour
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
         __transformCharacter.rotation = Quaternion.Euler(0f, 0f, angle);
     }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            HandleEnemyCollision();  
+        }
+    }
+
+    void HandleEnemyCollision()
+    {
+        if (gameController != null)
+        {
+            if (gameController.PlayerLives > 0)
+            {
+                gameController.ReduzirVida();
+            }
+            else
+            {
+                gameController.GameOver();
+            }
+        }
+    }
+
+
 
     public void Move(float h, float w)
     {
