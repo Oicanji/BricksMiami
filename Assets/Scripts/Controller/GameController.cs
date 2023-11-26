@@ -6,19 +6,21 @@ public class GameController : MonoBehaviour
 {
     public int PlayerLives { get; private set; } = 3; 
     [SerializeField] float gameTimer = 120.0f; 
-    [SerializeField] TextMeshProUGUI timerText;
+    [SerializeField] TextMeshProUGUI gameInfoText;
 
     private SceneController sceneController;
 
     void Start()
     {
         sceneController = FindObjectOfType<SceneController>();
-        timerText = FindObjectOfType<TextMeshProUGUI>();
+        gameInfoText = FindObjectOfType<TextMeshProUGUI>();
 
-        if (timerText == null)
+        if (gameInfoText == null)
         {
-            Debug.LogError("O objeto timerText não está atribuído. Por favor, atribua-o no Inspector.");
+            Debug.LogError("O objeto gameInfoText não está atribuído. Por favor, atribua-o no Inspector.");
         }
+
+        UpdateGameInfoText();
     }
 
     void Update()
@@ -29,10 +31,13 @@ public class GameController : MonoBehaviour
 
             int min = Mathf.FloorToInt(gameTimer / 60);
             int seg = Mathf.FloorToInt(gameTimer % 60);
-
-            if (timerText != null)
+            if (gameTimer < 0)
             {
-                timerText.text = string.Format("{0:00}:{1:00}", min, seg);
+                gameTimer = 0;
+            }
+            if (gameInfoText != null)
+            {
+                gameInfoText.text = string.Format("Tempo: {0:00}:{1:00}\nVidas: {2}", min, seg, PlayerLives);
             }
         }
         else
@@ -49,6 +54,7 @@ public class GameController : MonoBehaviour
     public void ReduzirVida()
     {
         PlayerLives--;
+        UpdateGameInfoText();
     }
 
     void Win()
@@ -63,4 +69,12 @@ public class GameController : MonoBehaviour
             sceneController.CarregarCenaGameOver();
         }
     }
+
+    void UpdateGameInfoText()
+    {
+        if (gameInfoText != null)
+        {
+            gameInfoText.text = string.Format("{0:00}:{1:00}                Vidas: {2}", Mathf.FloorToInt(gameTimer / 60), Mathf.FloorToInt(gameTimer % 60), PlayerLives);
+        }
+    } 
 }
