@@ -1,21 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class BlinkingController : MonoBehaviour
+public class BlinkingUIUtil : MonoBehaviour
 {
+
     public float blinkInterval = 1.0f;  // Intervalo de piscar em segundos
     public float fadeDuration = 0.5f;    // Duração da transição de opacidade
 
     private float lastToggleTime;
-    private Renderer titleRenderer;
+    private Image imageRenderer;
     private bool isFading = false;
     private float fadeStartTime;
-    
+
     void Start()
     {
         lastToggleTime = Time.time;
-        titleRenderer = GetComponent<Renderer>();
+        imageRenderer = GetComponent<Image>();
     }
 
     void Update()
@@ -43,18 +45,18 @@ public class BlinkingController : MonoBehaviour
             float alpha = Mathf.Lerp(1f, 0f, elapsedTime / fadeDuration);
 
             // Atualiza a opacidade do material
-            Color newColor = titleRenderer.material.color;
+            Color newColor = imageRenderer.material.color;
             newColor.a = alpha;
-            titleRenderer.material.color = newColor;
+            imageRenderer.material.color = newColor;
 
             elapsedTime += Time.deltaTime;
             yield return null;
         }
 
         // Garante que a opacidade seja 0 ao final da transição
-        Color finalColor = titleRenderer.material.color;
+        Color finalColor = imageRenderer.material.color;
         finalColor.a = 0f;
-        titleRenderer.material.color = finalColor;
+        imageRenderer.material.color = finalColor;
 
         // Aguarda por um pequeno intervalo antes de inverter a transição
         yield return new WaitForSeconds(0.1f);
@@ -66,18 +68,18 @@ public class BlinkingController : MonoBehaviour
         {
             float alpha = Mathf.Lerp(0f, 1f, elapsedTime / fadeDuration);
 
-            Color newColor = titleRenderer.material.color;
+            Color newColor = imageRenderer.material.color;
             newColor.a = alpha;
-            titleRenderer.material.color = newColor;
+            imageRenderer.material.color = newColor;
 
             elapsedTime += Time.deltaTime;
             yield return null;
         }
 
         // Garante que a opacidade seja 1 ao final da transição
-        Color finalOpaqueColor = titleRenderer.material.color;
+        Color finalOpaqueColor = imageRenderer.material.color;
         finalOpaqueColor.a = 1f;
-        titleRenderer.material.color = finalOpaqueColor;
+        imageRenderer.material.color = finalOpaqueColor;
 
         isFading = false;
     }
