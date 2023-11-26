@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BallView : MonoBehaviour
 {
-    private BallController __ballController;
+    public BallController __ballController;
     public float totalCollision = 0;
 
     // Start is called before the first frame update

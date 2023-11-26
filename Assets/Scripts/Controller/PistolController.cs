@@ -19,7 +19,7 @@ public class PistolController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) // Verifica se a tecla de espaço foi pressionada
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) // Verifica se o botão esquerdo do mouse foi pressionado
         {
             Shot(); // Chama a função para clonar o objeto
         }

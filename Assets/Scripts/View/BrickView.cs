@@ -11,8 +11,11 @@ public class BrickView : MonoBehaviour
         __brickController = GetComponent<BrickController>();
     }
 
-    public void PerformTakeDamage(float damage)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        __brickController.TakeDamage(damage);
+        if (collision.gameObject.CompareTag("Bullet"))
+        {
+            __brickController.TakeDamage(1);
+        }
     }
 }

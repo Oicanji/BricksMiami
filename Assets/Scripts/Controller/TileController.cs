@@ -34,13 +34,9 @@ public class TileController : MonoBehaviour
             Vector3 hitPosition = Vector3.zero;
             foreach (ContactPoint2D hit in collision.contacts)
             {
-                //rand numerber in 1 a 10 and < 3 destroy tile
-                if (Random.Range(1, 10) < 3)
-                {
-                    hitPosition.x = hit.point.x - 0.01f * hit.normal.x;
-                    hitPosition.y = hit.point.y - 0.01f * hit.normal.y;
-                    __tilemap.SetTile(__tilemap.WorldToCell(hitPosition), null);
-                }
+                hitPosition.x = hit.point.x - 0.01f * hit.normal.x;
+                hitPosition.y = hit.point.y - 0.01f * hit.normal.y;
+                __tilemap.SetTile(__tilemap.WorldToCell(hitPosition), null);
             }
         }
     }

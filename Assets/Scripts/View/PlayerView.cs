@@ -16,6 +16,8 @@ public class PlayerView : MonoBehaviour
     void Update()
     {
         float h = Input.GetAxis("Horizontal");
-        __playerController.Move(h);
+        float w = Input.GetAxis("Vertical");
+        __playerController.Move(h, w);
+
     }
 }

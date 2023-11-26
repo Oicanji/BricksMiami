@@ -6,9 +6,6 @@ public class BallController : MonoBehaviour
 {
     public BallModel __ballModel;
     private Rigidbody2D __rigidbodyBall;
-
-    public AudioClip BallHitEncounterEffect { get; internal set; }
-
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +14,6 @@ public class BallController : MonoBehaviour
 
         __rigidbodyBall.velocity = Vector2.up * __ballModel.Speed;
     }
-
     public void PerfectAngleReflect(Collision2D other)
     {
         __ballModel.Direction = Vector2.Reflect(__ballModel.Direction, other.contacts[0].normal);
