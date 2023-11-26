@@ -11,22 +11,44 @@ public class JukeboxController : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        PlayRandomMusic();
+        if (musicList.Count > 0)
+        {
+            PlayRandomMusic();
+        }
+        else
+        {
+            Debug.LogWarning("A lista de clipes de áudio está vazia.");
+        }
     }
 
     void PlayRandomMusic()
     {
-        AudioClip nextClip = GetRandomClip();
-        while (nextClip == currentClip && musicList.Count > 1)
+        if (musicList.Count > 1)
         {
-            nextClip = GetRandomClip();
+            AudioClip nextClip = GetRandomClip();
+            while (nextClip == currentClip)
+            {
+                nextClip = GetRandomClip();
+            }
+
+            currentClip = nextClip;
+            audioSource.clip = currentClip;
+            audioSource.Play();
+
+            Invoke("PlayRandomMusic", currentClip.length);
         }
+        else if (musicList.Count == 1)
+        {
+            currentClip = musicList[0];
+            audioSource.clip = currentClip;
+            audioSource.Play();
 
-        currentClip = nextClip;
-        audioSource.clip = currentClip;
-        audioSource.Play();
-
-        Invoke("PlayRandomMusic", currentClip.length);
+            Invoke("PlayRandomMusic", currentClip.length);
+        }
+        else
+        {
+            Debug.LogWarning("A lista de clipes de áudio está vazia.");
+        }
     }
 
     AudioClip GetRandomClip()

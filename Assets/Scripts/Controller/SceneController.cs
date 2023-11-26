@@ -3,11 +3,29 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
+    private string level;
+
+    void Start()
+    {
+        level = SceneManager.GetActiveScene().name;
+    }
+
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.R))
+
+        if (level == "inicio")
         {
-            CarregarLevel("level1");
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                CarregarLevel("level1");
+            }
+        }
+        else if (level == "GameOver")
+        {
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                CarregarLevel("level1");
+            }
         }
     }
 
