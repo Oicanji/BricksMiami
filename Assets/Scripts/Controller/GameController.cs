@@ -1,26 +1,46 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameController : MonoBehaviour
 {
     public int PlayerLives { get; private set; } = 3; 
-    public float gameTimer = 120.0f; 
-    public SceneController sceneController;
+    [SerializeField] float gameTimer = 120.0f; 
+    [SerializeField] TextMeshProUGUI timerText;
+
+    private SceneController sceneController;
 
     void Start()
     {
         sceneController = FindObjectOfType<SceneController>();
+        timerText = FindObjectOfType<TextMeshProUGUI>();
+
+        if (timerText == null)
+        {
+            Debug.LogError("O objeto timerText não está atribuído. Por favor, atribua-o no Inspector.");
+        }
     }
 
     void Update()
     {
-        gameTimer -= Time.deltaTime;
-        if (PlayerLives <= 0)
+        if (gameTimer > 0)
+        {
+            gameTimer -= Time.deltaTime;
+
+            int min = Mathf.FloorToInt(gameTimer / 60);
+            int seg = Mathf.FloorToInt(gameTimer % 60);
+
+            if (timerText != null)
+            {
+                timerText.text = string.Format("{0:00}:{1:00}", min, seg);
+            }
+        }
+        else
         {
             GameOver(); 
         }
 
-        if (gameTimer <= 0)
+        if (PlayerLives <= 0)
         {
             GameOver(); 
         }
@@ -38,7 +58,8 @@ public class GameController : MonoBehaviour
 
     public void GameOver()
     {
-        if (sceneController != null){
+        if (sceneController != null)
+        {
             sceneController.CarregarCenaGameOver();
         }
     }
