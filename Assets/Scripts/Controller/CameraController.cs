@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public float followSpeed = 2.0f;
     public Vector3 offset;
 
     private Transform target;
-    private float rotationSpeed = 5.0f;
+    private CameraModel cameraModel;
 
     void Start()
     {
@@ -24,6 +23,8 @@ public class CameraController : MonoBehaviour
         {
             Debug.LogWarning("Nenhum objeto com a tag 'Player' encontrado.");
         }
+
+        cameraModel = GetComponent<CameraModel>();
     }
 
     void FixedUpdate()
@@ -34,10 +35,10 @@ public class CameraController : MonoBehaviour
             Vector3 targetPosition = new Vector3(target.position.x + offset.x, target.position.y + offset.y, transform.position.z);
 
             // Interpolar suavemente entre a posição atual da câmera e a posição desejada
-            transform.position = Vector3.Lerp(transform.position, targetPosition, followSpeed * Time.deltaTime);
+            transform.position = Vector3.Lerp(transform.position, targetPosition, cameraModel.FollowSpeed * Time.deltaTime);
         }
         // fazer a camera ficar balançando de -14g a 14g
 
-        transform.Rotate(0, 0, Mathf.Sin(Time.time * rotationSpeed) * 0.15f);
+        transform.Rotate(0, 0, Mathf.Sin(Time.time * cameraModel.RotationSpeed) * cameraModel.RotationMultiplier);
     }
 }

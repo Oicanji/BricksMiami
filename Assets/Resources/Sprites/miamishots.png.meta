@@ -227,6 +227,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: miamishots_5
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 116
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e486ae9627a65d04e89222136254fa7e
+      internalID: -749915692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -243,6 +264,7 @@ TextureImporter:
       miamishots_2: -497066191
       miamishots_3: -405000697
       miamishots_4: -1407964733
+      miamishots_5: -749915692
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

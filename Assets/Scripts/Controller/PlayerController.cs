@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private PlayerModel __playerModel;
+    private CameraModel __cameraModel;
     private Transform __transform;
     private Transform __transformCharacter;
 
@@ -14,6 +15,7 @@ public class PlayerController : MonoBehaviour
         __playerModel = GetComponent<PlayerModel>();
         __transform = GetComponent<Transform>();
         __transformCharacter = __transform.GetChild(0);
+        __cameraModel = Camera.main.GetComponent<CameraModel>();
     }
 
     // Update is called once per frame
