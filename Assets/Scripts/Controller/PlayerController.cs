@@ -40,9 +40,13 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Enemy"))
+        if (other.CompareTag("Enemy") ||
+            other.CompareTag("Bullet")
+        )
         {
-            HandleEnemyCollision();  
+            if (__playerModel.HitEffect != null)
+                AudioSource.PlayClipAtPoint(__playerModel.HitEffect, transform.position);
+            HandleEnemyCollision();
         }
     }
 

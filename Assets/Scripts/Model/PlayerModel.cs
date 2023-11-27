@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class PlayerModel : MonoBehaviour
 {
-    [SerializeField]private float __speed;
-    [SerializeField]private float __life;
-    [SerializeField]private Vector2 __direction;
+    [SerializeField] private float __speed;
+    [SerializeField] private float __life;
+    [SerializeField] private Vector2 __direction;
+    [SerializeField] private AudioClip __hitEffect;
 
     public float Speed
     {
@@ -24,5 +25,10 @@ public class PlayerModel : MonoBehaviour
     {
         get => __direction;
         set => __direction = value;
+    }
+    public AudioClip HitEffect
+    {
+        get => __hitEffect;
+        set => __hitEffect = value;
     }
 }

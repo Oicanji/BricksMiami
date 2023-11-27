@@ -13,29 +13,29 @@ public class SceneController : MonoBehaviour
     void Update()
     {
 
-        if (level == "inicio")
+        if (level == "title_screen")
         {
             if (Input.GetKeyDown(KeyCode.Return))
             {
-                CarregarLevel("level1");
+                LoadScene("level_1");
             }
         }
-        else if (level == "GameOver")
+        else if (level == "game_over")
         {
             if (Input.GetKeyDown(KeyCode.R))
             {
-                CarregarLevel("level1");
+                LoadScene("level_1");
             }
         }
     }
 
-    public void CarregarLevel(string level)
+    public void LoadScene(string level)
     {
         SceneManager.LoadScene(level);
     }
 
-    public void CarregarCenaGameOver()
+    public void LoadGameOver()
     {
-        SceneManager.LoadScene("GameOver");
+        SceneManager.LoadScene("game_over");
     }
 }

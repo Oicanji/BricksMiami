@@ -16,7 +16,7 @@ public class GameController : MonoBehaviour
     void Start()
     {
         sceneController = FindObjectOfType<SceneController>();
-        gameInfoText = GameObject.Find("UI").GetComponent<TextMeshProUGUI>();
+        gameInfoText = GameObject.Find("Temporizer").GetComponent<TextMeshProUGUI>();
         scoreText = GameObject.Find("Points").GetComponent<TextMeshProUGUI>();
 
         if (gameInfoText == null || scoreText == null)
@@ -84,7 +84,7 @@ public class GameController : MonoBehaviour
     {
         if (sceneController != null)
         {
-            sceneController.CarregarCenaGameOver();
+            sceneController.LoadGameOver();
         }
     }
 

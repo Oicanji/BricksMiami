@@ -32,12 +32,10 @@ public class BallView : MonoBehaviour
         }
 
         AudioSource.PlayClipAtPoint(__ballController.__ballModel.FragmentEffect, transform.position);
-        if (collision.gameObject.CompareTag("Breakable"))
-        {
-            __ballController.PerfectAngleReflect(collision);
-
-        }
-        else if (collision.gameObject.CompareTag("Wall"))
+        if (collision.gameObject.CompareTag("Breakable") ||
+            collision.gameObject.CompareTag("Enemy") ||
+            collision.gameObject.CompareTag("Wall")
+        )
         {
             __ballController.PerfectAngleReflect(collision);
         }
