@@ -6,6 +6,7 @@ public class BallController : MonoBehaviour
 {
     public BallModel __ballModel;
     private Rigidbody2D __rigidbodyBall;
+    private Vector2 __mouseDirection;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +14,23 @@ public class BallController : MonoBehaviour
         __rigidbodyBall = GetComponent<Rigidbody2D>();
 
         __rigidbodyBall.velocity = Vector2.up * __ballModel.Speed;
+
+        // Obtenha a direção do mouse em relação à posição inicial da bola
+        Vector2 directionToMouse = GetDirectionToMouse();
+
+        // Defina a direção da bola na direção do mouse
+        __ballModel.Direction = directionToMouse;
+        __rigidbodyBall.velocity = __ballModel.Direction * (__ballModel.Speed * 2f);
+    }
+
+    private Vector2 GetDirectionToMouse()
+    {
+        // Obtenha a posição do mouse na tela e converta para as coordenadas do mundo
+        Vector3 mousePosition = Input.mousePosition;
+        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+
+        // Calcule a direção da bola em relação à posição do mouse (sem normalizar pela distância)
+        return (mousePosition - transform.position).normalized;
     }
     public void PerfectAngleReflect(Collision2D other)
     {

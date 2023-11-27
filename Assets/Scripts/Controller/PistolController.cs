@@ -54,7 +54,7 @@ public class PistolController : MonoBehaviour
         AudioSource.PlayClipAtPoint(__pistolModel.ShotSound, transform.position);
 
         GameObject bullet = Instantiate(__pistolModel.Bullet);
-        bullet.transform.position = new Vector3(transform.position.x, transform.position.y + __pistolModel.DistanceSpawnY, transform.position.z); // Define a posição do objeto clonado
+        bullet.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z); // Define a posição do objeto clonado
 
         __currentBullets--; // Diminui a quantidade de balas
         __lastShotTime = Time.time;
