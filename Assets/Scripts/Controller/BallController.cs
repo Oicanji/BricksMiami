@@ -21,6 +21,9 @@ public class BallController : MonoBehaviour
         // Defina a direção da bola na direção do mouse
         __ballModel.Direction = directionToMouse;
         __rigidbodyBall.velocity = __ballModel.Direction * (__ballModel.Speed * 2f);
+
+        // Criar um timeout baseado em quanto é o tempo maximo de vida da bola e destruir a bola após esse tempo
+        Destroy(gameObject, __ballModel.MaxTimeLife);
     }
 
     private Vector2 GetDirectionToMouse()

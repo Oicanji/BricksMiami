@@ -13,6 +13,7 @@ public class CameraController : MonoBehaviour
     {
         // Encontrar o primeiro objeto com a tag "Player"
         GameObject player = GameObject.FindGameObjectWithTag("Player");
+
         if (player != null)
         {
             target = player.transform;

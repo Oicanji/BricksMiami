@@ -10,7 +10,6 @@ public class PistolModel : MonoBehaviour
     [SerializeField] private float fireRate;
     [SerializeField] private int bullets;
     [SerializeField] private float reloadTime;
-    [SerializeField] private float distanceSpawnY;
 
 
     public GameObject Bullet
@@ -32,11 +31,6 @@ public class PistolModel : MonoBehaviour
     {
         get { return reloadTime; }
         set { reloadTime = value; }
-    }
-    public float DistanceSpawnY
-    {
-        get { return distanceSpawnY; }
-        set { distanceSpawnY = value; }
     }
     public AudioClip ShotSound
     {

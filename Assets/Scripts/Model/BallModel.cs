@@ -5,11 +5,18 @@ using UnityEngine;
 public class BallModel : MonoBehaviour
 {
     [SerializeField] private float __speed;
+    [SerializeField] private float __maxTimeLife = 500f;
     [SerializeField] private float __power;
     [SerializeField] private float __limitFragmentation;
     [SerializeField] private Vector2 __direction;
     [SerializeField] private AudioClip __fragmentEffect;
     [SerializeField] private AudioClip __fragmentEndEffect;
+
+    public float MaxTimeLife
+    {
+        get => __maxTimeLife;
+        set => __maxTimeLife = value;
+    }
 
     public AudioClip FragmentEffect
     {
