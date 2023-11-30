@@ -5,6 +5,7 @@ using UnityEngine;
 public class PistolController : MonoBehaviour
 {
     private PistolModel __pistolModel;
+    private Animator __animator;
     //last shot time
     private float __lastShotTime = 0f;
     private float __lastReloadTime = 0f;
@@ -15,6 +16,7 @@ public class PistolController : MonoBehaviour
     {
         __pistolModel = GetComponent<PistolModel>();
         __currentBullets = __pistolModel.Bullets;
+        __animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -27,7 +29,6 @@ public class PistolController : MonoBehaviour
 
     void Shot()
     {
-
         if (Time.time - __lastShotTime < __pistolModel.FireRate) // Verifica se o tempo entre o último tiro e o atual é menor que o tempo de recarga
         {
             print("Aguarde o tempo de recarga");
@@ -50,6 +51,7 @@ public class PistolController : MonoBehaviour
             }
         }
 
+        __animator.SetBool("isShooting", true);
         //ShotSound play
         AudioSource.PlayClipAtPoint(__pistolModel.ShotSound, transform.position);
 
@@ -58,6 +60,14 @@ public class PistolController : MonoBehaviour
 
         __currentBullets--; // Diminui a quantidade de balas
         __lastShotTime = Time.time;
+
+        // set interval 0.6s to stop animation
+        Invoke("StopAnimation", 0.5f);
+    }
+
+    void StopAnimation()
+    {
+        __animator.SetBool("isShooting", false);
     }
 
 }

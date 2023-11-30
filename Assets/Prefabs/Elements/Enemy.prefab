@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -405000697, guid: 10785879614053b408a33467717d12ce, type: 3}
+  m_Sprite: {fileID: 71182952, guid: 3be644bc16722c6438e0d6f9f3d02d49, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -277,6 +277,10 @@ MonoBehaviour:
   __breakEffect: {fileID: 8300000, guid: e1714666f4345a6459c05a23ab84a130, type: 3}
   __hitEffect: {fileID: 8300000, guid: 8c1b0c5570709504c8d5032a65166a2b, type: 3}
   __Evasion: 0.5
+  __drops: []
+  __dropChance: 1
+  __spawnObjectOnDestroy: {fileID: 257953844364131534, guid: 8bde9effb72c6094cb3273a7a56560d4, type: 3}
+  __spawnChance: 1
 --- !u!114 &4025171793553188748
 MonoBehaviour:
   m_ObjectHideFlags: 0

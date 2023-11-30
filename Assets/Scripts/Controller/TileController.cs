@@ -10,20 +10,6 @@ public class TileController : MonoBehaviour
     void Start()
     {
         __tilemap = GetComponent<Tilemap>();
-        GetTilesFromTileset();
-    }
-
-    void GetTilesFromTileset()
-    {
-        // TileBase[] allTiles = __tilemap.GetTilesBlock(__tilemap.cellBounds); // Obtém todos os tiles do Tilemap
-
-        // if (allTiles != null)
-        // {
-        //     for (int i = 0; i < allTiles.Length; i++)
-        //     {
-        //         Debug.Log("Tile encontrado: " + allTiles[i]);
-        //     }
-        // }
     }
 
     // if collision with ball destroy tile

@@ -22,6 +22,15 @@ public class BrickController : MonoBehaviour
             if (__brickModel.BreakEffect != null)
                 AudioSource.PlayClipAtPoint(__brickModel.BreakEffect, transform.position);
             Destroy(gameObject);
+
+            if (__brickModel.SpawnObjectOnDestroy != null)
+            {
+                if (Random.Range(0.0f, 1.0f) < __brickModel.SpawnChance)
+                {
+                    GameObject spawn = Instantiate(__brickModel.SpawnObjectOnDestroy);
+                    spawn.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+                }
+            }
             return;
         }
         if (__brickModel.HitEffect != null)
