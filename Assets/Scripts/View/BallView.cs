@@ -24,25 +24,26 @@ public class BallView : MonoBehaviour
 
         __ballController.__ballModel.Speed += __ballController.__ballModel.Speed * 0.4f;
 
-        if (collision.gameObject.CompareTag("Bullet"))
+        // if (collision.gameObject.CompareTag("Bullet"))
+        // {
+        //     AudioSource.PlayClipAtPoint(__ballController.__ballModel.FragmentEndEffect, transform.position);
+        //     Destroy(gameObject);
+        //     return;
+        // }
+
+        if (__ballController.__ballModel.FragmentEffect != null)
         {
-            AudioSource.PlayClipAtPoint(__ballController.__ballModel.FragmentEndEffect, transform.position);
-            Destroy(gameObject);
-            return;
+            AudioSource.PlayClipAtPoint(__ballController.__ballModel.FragmentEffect, transform.position);
         }
 
-        AudioSource.PlayClipAtPoint(__ballController.__ballModel.FragmentEffect, transform.position);
-        if (collision.gameObject.CompareTag("Breakable") ||
-            collision.gameObject.CompareTag("Enemy") ||
-            collision.gameObject.CompareTag("Wall")
-        )
-        {
-            __ballController.PerfectAngleReflect(collision);
-        }
-        else if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             Vector2 direction = __ballController.CalcBallAngleReflect(collision);
             __ballController.AngleChange(direction);
+        }
+        else
+        {
+            __ballController.PerfectAngleReflect(collision);
         }
 
         totalCollision++;

@@ -5,7 +5,7 @@ using UnityEngine.Tilemaps;
 
 public class TileController : MonoBehaviour
 {
-    public Tilemap __tilemap; // Referência para o Tilemap que contém os tiles
+    private Tilemap __tilemap; // Referência para o Tilemap que contém os tiles
 
     void Start()
     {

@@ -233,7 +233,7 @@ MonoBehaviour:
   __life: 1
   __breakEffect: {fileID: 0}
   __hitEffect: {fileID: 0}
-  __Evasion: 0
+  __Evasion: 0.2
   __drops: []
   __dropChance: 1
   __spawnObjectOnDestroy: {fileID: 1525685819829166800, guid: c9620c14f26200545a3f2311b558ad72, type: 3}

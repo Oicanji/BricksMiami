@@ -13,7 +13,7 @@ public class BrickController : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        if (Random.Range(0.0f, 1.0f) < __brickModel.Evasion)
+        if (Random.Range(0.0f, 1.0f) > __brickModel.Evasion)
         {
             __brickModel.Life -= damage;
         }
