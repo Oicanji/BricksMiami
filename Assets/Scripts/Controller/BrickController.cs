@@ -13,6 +13,14 @@ public class BrickController : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+
+        Debug.Log("Inimigo TESTE " + gameObject.tag);
+        if (gameObject.CompareTag("Enemy"))
+        {
+            Debug.Log("Inimigo Morto");
+            FindObjectOfType<GameController>().InimigoMorto();
+        }
+
         if (Random.Range(0.0f, 1.0f) > __brickModel.Evasion)
         {
             __brickModel.Life -= damage;
@@ -21,6 +29,9 @@ public class BrickController : MonoBehaviour
         {
             if (__brickModel.BreakEffect != null)
                 AudioSource.PlayClipAtPoint(__brickModel.BreakEffect, transform.position);
+            
+
+            
             Destroy(gameObject);
 
             if (__brickModel.SpawnObjectOnDestroy != null)

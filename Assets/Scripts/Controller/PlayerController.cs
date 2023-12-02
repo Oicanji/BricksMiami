@@ -141,7 +141,7 @@ public class PlayerController : MonoBehaviour
     {
         if (gameController != null)
         {
-            if (gameController.PlayerLives > 0)
+            if (__playerModel.Life > 0)
             {
                 gameController.ReduzirVida();
             }

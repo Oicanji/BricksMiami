@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7132576558327723441}
   - component: {fileID: 4975679870817594146}
   m_Layer: 0
-  m_Name: Player
+  m_Name: player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -98,7 +98,7 @@ MonoBehaviour:
   __speed: 4
   __dashSpeed: 22
   __dashCooldown: 600
-  __life: 5
+  __life: 3
   __doubleTapTimeThreshold: 0.3
   __invunerableTime: 3
   __direction: {x: 0, y: 0}

@@ -4,17 +4,31 @@ using TMPro;
 
 public class GameController : MonoBehaviour
 {
-    public int PlayerLives { get; private set; } = 3;
+    private PlayerModel __playerModel;
+
     [SerializeField] float gameTimer = 120.0f;
     [SerializeField] TextMeshProUGUI gameInfoText;
     [SerializeField] TextMeshProUGUI scoreText;
 
     private SceneController sceneController;
+    private int enemyCount;
+    private GameObject[] enemies; 
+
+    
     private int score = 0;
     private float scoreTimer = 2.0f;
 
     void Start()
     {
+        __playerModel = FindObjectOfType<PlayerModel>();
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        enemyCount = Mathf.Max(enemies.Length / 2, 0);
+
+        if (__playerModel == null)
+        {
+            Debug.LogError("PlayerModel não encontrado. Certifique-se de que o objeto PlayerModel está ativo na cena.");
+            return;
+        }
         sceneController = FindObjectOfType<SceneController>();
         gameInfoText = GameObject.Find("Temporizer").GetComponent<TextMeshProUGUI>();
         scoreText = GameObject.Find("Points").GetComponent<TextMeshProUGUI>();
@@ -30,7 +44,6 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-        // Atualizar o temporizador do jogo
         if (gameTimer > 0)
         {
             gameTimer -= Time.deltaTime;
@@ -41,15 +54,14 @@ public class GameController : MonoBehaviour
             GameOver();
         }
 
-        // Atualizar o temporizador do score
         scoreTimer -= Time.deltaTime;
         if (scoreTimer <= 0)
         {
-            AdicionarPontos(1); // Adiciona 1 ponto a cada 2 segundos
-            scoreTimer = 2.0f; // Reinicia o temporizador
+            AdicionarPontos(1); 
+            scoreTimer = 2.0f; 
         }
 
-        if (PlayerLives <= 0)
+        if ( __playerModel.Life <= 0)
         {
             GameOver();
         }
@@ -57,8 +69,15 @@ public class GameController : MonoBehaviour
 
     public void ReduzirVida()
     {
-        PlayerLives--;
-        UpdateGameInfoText();
+        if (__playerModel != null)
+        {
+            float vidaAtual = __playerModel.Life;
+
+            vidaAtual--;
+
+            __playerModel.Life = vidaAtual;
+            UpdateGameInfoText();
+        }
     }
 
     void AdicionarPontos(int pontos)
@@ -88,6 +107,24 @@ public class GameController : MonoBehaviour
         }
     }
 
+    public void InimigoMorto()
+        {
+            foreach (var enemy in enemies)
+            {
+                if (enemy.activeSelf)
+                {
+                    enemyCount--;
+                }
+            }
+
+            Debug.Log("Inimigos Restantes: " + enemyCount);
+
+            if (enemyCount <= 0)
+            {
+                SceneManager.LoadScene("NomeDaProximaCena");
+            }
+        }
+
     void UpdateGameInfoText()
     {
         if (gameInfoText != null)
@@ -98,7 +135,7 @@ public class GameController : MonoBehaviour
             {
                 gameTimer = 0;
             }
-            gameInfoText.text = string.Format("Tempo: {0:00}:{1:00}\nVidas: {2}", min, seg, PlayerLives);
+            gameInfoText.text = string.Format("Tempo: {0:00}:{1:00}\nVidas: {2}", min, seg, __playerModel.Life);
         }
     }
 }
