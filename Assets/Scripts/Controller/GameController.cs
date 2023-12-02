@@ -14,6 +14,7 @@ public class GameController : MonoBehaviour
     private int enemyCount;
     private GameObject[] enemies; 
 
+    private int fase;
     
     private int score = 0;
     private float scoreTimer = 2.0f;
@@ -96,7 +97,9 @@ public class GameController : MonoBehaviour
 
     void Win()
     {
-        // SceneManager.LoadScene("WinScene");
+        PlayerPrefs.SetInt("Pontuacao", score);
+        PlayerPrefs.Save();
+        sceneController.LoadScene("WinScene");
     }
 
     public void GameOver()
@@ -109,19 +112,12 @@ public class GameController : MonoBehaviour
 
     public void InimigoMorto()
         {
-            foreach (var enemy in enemies)
-            {
-                if (enemy.activeSelf)
-                {
-                    enemyCount--;
-                }
-            }
-
+            enemyCount--;
             Debug.Log("Inimigos Restantes: " + enemyCount);
-
+            Win();
             if (enemyCount <= 0)
             {
-                SceneManager.LoadScene("NomeDaProximaCena");
+                Win();
             }
         }
 
