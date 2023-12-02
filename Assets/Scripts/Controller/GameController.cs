@@ -98,6 +98,7 @@ public class GameController : MonoBehaviour
     void Win()
     {
         PlayerPrefs.SetInt("Pontuacao", score);
+        Debug.Log("Pontuação: " + score);
         PlayerPrefs.Save();
         sceneController.LoadScene("WinScene");
     }
@@ -114,7 +115,6 @@ public class GameController : MonoBehaviour
         {
             enemyCount--;
             Debug.Log("Inimigos Restantes: " + enemyCount);
-            Win();
             if (enemyCount <= 0)
             {
                 Win();
