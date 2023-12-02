@@ -23,7 +23,7 @@ public class GameController : MonoBehaviour
     {
         __playerModel = FindObjectOfType<PlayerModel>();
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        enemyCount = Mathf.Max(enemies.Length / 2, 0);
+        enemyCount = Mathf.Max(enemies.Length / 2 - 1, 0);
 
         if (__playerModel == null)
         {
