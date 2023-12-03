@@ -37,9 +37,10 @@ public class GameController : MonoBehaviour
         __playerAnimator = GameObject.Find("MeeleSprite").GetComponent<Animator>();
         __playerMeleeSprite = GameObject.Find("MeeleSprite").GetComponent<SpriteRenderer>();
         animatorOverrideController = new AnimatorOverrideController(__playerAnimator.runtimeAnimatorController);
+        //animatorOverrideController = __playerAnimator.runtimeAnimatorController as AnimatorOverrideController;
 
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        enemyCount = Mathf.Max(enemies.Length / 2, 0);
+        enemyCount = Mathf.Max(enemies.Length, 0);
 
         if (__playerModel == null)
         {
@@ -89,11 +90,9 @@ public class GameController : MonoBehaviour
 
         __playerName.sprite = character.uiName;
 
-        // subs a animation "attack" for the animation "meele"s
-        animatorOverrideController = new AnimatorOverrideController(__playerAnimator.runtimeAnimatorController);
-        animatorOverrideController["attack"] = character.meeleAttack;
+        animatorOverrideController["player_melee"] = character.meeleAttack;
+        animatorOverrideController["player_melee_idle"] = character.meeleAttackSprite;
         __playerAnimator.runtimeAnimatorController = animatorOverrideController;
-
     }
 
     void Update()
@@ -148,7 +147,7 @@ public class GameController : MonoBehaviour
     {
         PlayerPrefs.SetInt("Pontuacao", score);
         PlayerPrefs.Save();
-        sceneController.LoadScene("WinScene");
+        sceneController.LoadScene("win_scene");
     }
 
     public void GameOver()

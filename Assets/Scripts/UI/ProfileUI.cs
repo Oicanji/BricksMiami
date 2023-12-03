@@ -27,8 +27,7 @@ public class ProfileUI : MonoBehaviour
 
     public void UpdateProfile(float life, float max_life)
     {
-        print(life * 100 / max_life);
-        if (life * 100 / max_life > 70.0f)
+        if (life * 100 / max_life > 80.0f)
         {
             GetComponent<Image>().sprite = profileMax;
         }

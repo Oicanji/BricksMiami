@@ -29,4 +29,5 @@ MonoBehaviour:
   meeleCountdown: 1
   direction: {x: 0, y: 0}
   hitEffect: {fileID: 8300000, guid: 590457b1f1f4a124799c82d769fc7abc, type: 3}
-  invunerableEffect: {fileID: 8300000, guid: 4a87cf5d1141b4d48b05bba6a75f0f6b, type: 3}
+  invunerableEffect: {fileID: 8300000, guid: 29422fd4e5632a5408d529612878cb19, type: 3}
+  meeleAttackSprite: {fileID: 7400000, guid: f1e3ae6d8c124424bb615a867f7d369f, type: 2}

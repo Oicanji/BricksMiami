@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
         __cameraModel = Camera.main.GetComponent<CameraModel>();
         gameController = FindObjectOfType<GameController>();
         __playerModel.DashImage = GameObject.Find("Dash").GetComponent<Image>();
+        __playerModel.MeleeImage = GameObject.Find("Knife").GetComponent<Image>();
 
         __lastDash = Time.time - __playerModel.DashCooldown;
         __lastMeleeTime = Time.time - __playerModel.MeeleCountdown;
@@ -64,9 +65,16 @@ public class PlayerController : MonoBehaviour
                 __animatorMelee.SetTrigger("onAttack");
                 __MeleeCollider.tag = "Bullet";
                 __lastMeleeTime = Time.time;
-                StartCoroutine(ChangeTag("Untagged", 0.5f));
+                __playerModel.MeleeImage.color = new Color(1, 1, 1, 0.3f);
+                StartCoroutine(ChangeTag("Untagged", 0.3f));
+                StartCoroutine(EndMeleeCountdown(__playerModel.MeeleCountdown));
             }
         }
+    }
+    IEnumerator EndMeleeCountdown(float time)
+    {
+        yield return new WaitForSeconds(time);
+        __playerModel.MeleeImage.color = new Color(1, 1, 1, 1f);
     }
 
     IEnumerator ChangeTag(string tag, float time)
@@ -187,9 +195,9 @@ public class PlayerController : MonoBehaviour
 
     public void dash(float h, float w)
     {
-        if (__playerModel.DashCooldown < Time.time)
+        if (Time.time - __lastDash > __playerModel.DashCooldown)
         {
-            __playerModel.DashImage.color = new Color(1, 1, 1, 0.5f);
+            __playerModel.DashImage.color = new Color(1, 1, 1, 0.3f);
             __invunerableTime = Time.time;
             StartCoroutine(SpriteBlink(0.3f));
             if (__playerModel.InvunerableEffect != null)

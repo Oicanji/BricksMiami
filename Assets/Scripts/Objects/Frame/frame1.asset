@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd56d934eb0bf3d40962fa792c409c4f, type: 3}
   m_Name: frame1
   m_EditorClassIdentifier: 
-  text: "Nossa hist\xF3ria come\xE7a quando uma pandemia de Coach invade a internet,
-    cansado de ver milhares de homens carecas iguais em toda parte"
-  image: {fileID: 0}
-  duration: 10
+  text: "Um dia, milhares de calvos invadem a internet, criando in\xFAmeros cursos
+    de Coach"
+  image: {fileID: 524951501, guid: 1089e278e1e24b1428cb50ce029e3ed2, type: 3}
+  duration: 5

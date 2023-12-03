@@ -22,4 +22,5 @@ public class Character : ScriptableObject
     public Vector2 direction;
     public AudioClip hitEffect;
     public AudioClip invunerableEffect;
+    public AnimationClip meeleAttackSprite;
 }

@@ -18,8 +18,15 @@ public class PlayerModel : MonoBehaviour
     [SerializeField] private float __meeleCountdown = 10f;
     [SerializeField] private float __blinkDuration = 0.1f;
     [SerializeField] private Image __dashImage;
+
+    [SerializeField] private Image __meleeImage;
     [SerializeField] private AnimationClip __meleeAttack;
 
+    public Image MeleeImage
+    {
+        get => __meleeImage;
+        set => __meleeImage = value;
+    }
     public AnimationClip MeleeAttack
     {
         get => __meleeAttack;

@@ -35,7 +35,7 @@ public class BallView : MonoBehaviour
         {
             AudioSource.PlayClipAtPoint(__ballController.__ballModel.FragmentEffect, transform.position);
         }
-
+        print(collision.gameObject.tag);
         if (collision.gameObject.CompareTag("Player"))
         {
             Vector2 direction = __ballController.CalcBallAngleReflect(collision);

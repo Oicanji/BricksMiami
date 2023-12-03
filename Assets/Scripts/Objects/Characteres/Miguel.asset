@@ -23,10 +23,11 @@ MonoBehaviour:
   speed: 3
   dashSpeed: 26
   dashCooldown: 5
-  life: 4
+  life: 8
   doubleTapTimeThreshold: 0.5
   invunerableTime: 10
   meeleCountdown: 5
   direction: {x: 0, y: 0}
   hitEffect: {fileID: 8300000, guid: 79db0a50e37af224abdc6134375cad65, type: 3}
-  invunerableEffect: {fileID: 8300000, guid: 4a87cf5d1141b4d48b05bba6a75f0f6b, type: 3}
+  invunerableEffect: {fileID: 8300000, guid: 29422fd4e5632a5408d529612878cb19, type: 3}
+  meeleAttackSprite: {fileID: 7400000, guid: 58927ffde0b80d14f81f71f3eb94076a, type: 2}
