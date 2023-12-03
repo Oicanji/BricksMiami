@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< Updated upstream
-guid: 76c9ef3392189b54aa21430cf1ae5db0
-=======
-guid: 03887bdbd63882742b48103b02d01a99
->>>>>>> Stashed changes
+guid: 2a14a5befa8004247959325529f91660
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -38,11 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-<<<<<<< Updated upstream
-    filterMode: 1
-=======
     filterMode: 0
->>>>>>> Stashed changes
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -51,11 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-<<<<<<< Updated upstream
-  spriteMode: 1
-=======
   spriteMode: 2
->>>>>>> Stashed changes
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -84,11 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-<<<<<<< Updated upstream
-    textureCompression: 1
-=======
     textureCompression: 0
->>>>>>> Stashed changes
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -137,12 +121,9 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-<<<<<<< Updated upstream
-    sprites: []
-=======
     sprites:
     - serializedVersion: 2
-      name: meelee-Sheet_0
+      name: meelee_0
       rect:
         serializedVersion: 2
         x: 0
@@ -156,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 96d596e0735fbdd4ba85e870d0c991ed
-      internalID: -2125014000
+      spriteID: d3a409eec5e33e245af4503c5c330a7c
+      internalID: 711130129
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: meelee-Sheet_1
+      name: meelee_1
       rect:
         serializedVersion: 2
         x: 48
@@ -177,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d44f975d044eabd46945be54a1e2748b
-      internalID: -112108355
+      spriteID: 4ff7ec61c23e9154590fde50a9d66b1b
+      internalID: 513950211
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: meelee-Sheet_2
+      name: meelee_2
       rect:
         serializedVersion: 2
         x: 96
@@ -198,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fca6c023820cae64c8d06f1e43bab7b0
-      internalID: -1657962125
+      spriteID: 0abad8c1494f0a5438664080d4c3044e
+      internalID: 1987983030
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: meelee-Sheet_3
+      name: meelee_3
       rect:
         serializedVersion: 2
         x: 144
@@ -219,14 +200,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c0e1a02e66a83204cb704c2d089810bb
-      internalID: 691404342
+      spriteID: e8fbab3952ee00649bd594893c04c086
+      internalID: 930441909
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: meelee-Sheet_4
+      name: meelee_4
       rect:
         serializedVersion: 2
         x: 0
@@ -240,14 +221,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 439470738bfbdfe48a1d27883b8f9261
-      internalID: -852004025
+      spriteID: b809d351c3b9ada458d56d4de6838662
+      internalID: 2037899140
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: meelee-Sheet_5
+      name: meelee_5
       rect:
         serializedVersion: 2
         x: 48
@@ -261,14 +242,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 37f506cda33f6534b8e65a1ceb0543b3
-      internalID: 1809755684
+      spriteID: 43af5144d0f56814ebed2404e1867c03
+      internalID: 1297653297
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: meelee-Sheet_6
+      name: meelee_6
       rect:
         serializedVersion: 2
         x: 96
@@ -282,14 +263,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 729920846e83dd44c96b4c10f6d839d4
-      internalID: -2096139186
+      spriteID: 7d837da12d8cf694d9c7758e7e2693da
+      internalID: 1999256575
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: meelee-Sheet_7
+      name: meelee_7
       rect:
         serializedVersion: 2
         x: 144
@@ -303,77 +284,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 80c88e29bf15daa488809b49072748d4
-      internalID: -47171965
+      spriteID: f5e5605e88d34a84b9cce85de1bf1a06
+      internalID: 330223146
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: meelee-Sheet_8
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 48
-        width: 48
-        height: 48
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e9e40dce609008d4fbf794057481304d
-      internalID: 635040116
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: meelee-Sheet_9
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 48
-        width: 48
-        height: 48
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e606f392f95db6e46a6a5afbc77a749f
-      internalID: -480171573
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: meelee-Sheet_10
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 48
-        width: 48
-        height: 48
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0b5347b1b105fbf48bfb2879c02e5445
-      internalID: 1149282663
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: meelee-Sheet_11
+      name: meelee_8
       rect:
         serializedVersion: 2
         x: 0
@@ -387,18 +305,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 81dfd16384e54054bac53ae23ba13a02
-      internalID: 185179244
+      spriteID: 20cb9f38ad152ee40ace3b5a2fd6f796
+      internalID: -1140009454
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: meelee-Sheet_12
+      name: meelee_9
       rect:
         serializedVersion: 2
         x: 48
-        y: 0
+        y: 48
         width: 48
         height: 48
       alignment: 7
@@ -408,18 +326,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f3d1f0457459fd1469191c3f92a13ffe
-      internalID: -1771017885
+      spriteID: 5474a8f7c8224da47accc437e116e798
+      internalID: -1961890136
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: meelee-Sheet_13
+      name: meelee_10
       rect:
         serializedVersion: 2
         x: 96
-        y: 0
+        y: 48
         width: 48
         height: 48
       alignment: 7
@@ -429,18 +347,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fe5e29c5679b99e4e98dd678c308289e
-      internalID: -220535489
+      spriteID: cbd8100970d0931419c27a4e987cefd1
+      internalID: 442257679
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: meelee-Sheet_14
+      name: meelee_11
       rect:
         serializedVersion: 2
         x: 144
-        y: 0
+        y: 48
         width: 48
         height: 48
       alignment: 7
@@ -450,14 +368,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 30bafeeba764f2d4886936697a98ec16
-      internalID: 233660762
+      spriteID: ec3deaecfc2838c4fabbaa0d28f4b714
+      internalID: 1986369600
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: meelee-Sheet_15
+      name: meelee_12
       rect:
         serializedVersion: 2
         x: 0
@@ -471,13 +389,75 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf00db37cdaf8fd4e808aa8bc697c9d9
-      internalID: -1648987623
+      spriteID: 7800580f229f9114bbd151fb64863f45
+      internalID: 1726749888
       vertices: []
       indices: 
       edges: []
       weights: []
->>>>>>> Stashed changes
+    - serializedVersion: 2
+      name: meelee_13
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 48
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9acfbcb50932da4e95fec15a8b400d1
+      internalID: 256413935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: meelee_14
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 48
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 637f1afe30bf06e49863a9960b06d211
+      internalID: -2142556192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: meelee_15
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 48
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1dcbe0444a0f294cad2dc62f8663790
+      internalID: 1946654868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -488,30 +468,26 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-<<<<<<< Updated upstream
-    nameFileIdTable: {}
-=======
     nameFileIdTable:
-      meelee-Sheet_0: -2125014000
-      meelee-Sheet_1: -112108355
-      meelee-Sheet_10: 1149282663
-      meelee-Sheet_11: 185179244
-      meelee-Sheet_12: -1771017885
-      meelee-Sheet_13: -220535489
-      meelee-Sheet_14: 233660762
-      meelee-Sheet_15: -1648987623
-      meelee-Sheet_16: 219057857
-      meelee-Sheet_17: 1588788968
-      meelee-Sheet_18: -76369161
-      meelee-Sheet_2: -1657962125
-      meelee-Sheet_3: 691404342
-      meelee-Sheet_4: -852004025
-      meelee-Sheet_5: 1809755684
-      meelee-Sheet_6: -2096139186
-      meelee-Sheet_7: -47171965
-      meelee-Sheet_8: 635040116
-      meelee-Sheet_9: -480171573
->>>>>>> Stashed changes
+      meelee_0: 711130129
+      meelee_1: 513950211
+      meelee_10: 442257679
+      meelee_11: 1986369600
+      meelee_12: 1726749888
+      meelee_13: 256413935
+      meelee_14: -2142556192
+      meelee_15: 1946654868
+      meelee_16: 2021649321
+      meelee_17: 1266959644
+      meelee_18: 639279759
+      meelee_2: 1987983030
+      meelee_3: 930441909
+      meelee_4: 2037899140
+      meelee_5: 1297653297
+      meelee_6: 1999256575
+      meelee_7: 330223146
+      meelee_8: -1140009454
+      meelee_9: -1961890136
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

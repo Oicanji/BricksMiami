@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -9,14 +10,15 @@ public class PlayerController : MonoBehaviour
     private bool __verticalPressed = false;
     private bool __horizontalPressed = false;
     private float __lastTapTime = 0f;
+    private float __lastMeleeTime = 0f;
+    private float __invunerableTime = 0f;
     private GameController gameController;
     public SpriteRenderer __playerSpriteRenderer;
     private Transform __transformCharacter;
     private Transform __transform;
-    private float __invunerableTime = 0f;
-    private float __dashCooldown = 0f;
-    private float blinkDuration = 0.1f;
-
+    private float __lastDash;
+    private Animator __animatorMelee;
+    private GameObject __MeleeCollider;
 
     // Start is called before the first frame update
     void Start()
@@ -25,9 +27,14 @@ public class PlayerController : MonoBehaviour
         __transform = GetComponent<Transform>();
         __playerSpriteRenderer = __transform.GetChild(0).GetComponent<SpriteRenderer>();
         __transformCharacter = __transform.GetChild(0);
+        __animatorMelee = __transform.GetChild(0).GetChild(0).GetComponent<Animator>();
+        __MeleeCollider = __transform.GetChild(0).GetChild(0).GetChild(0).gameObject;
         __cameraModel = Camera.main.GetComponent<CameraModel>();
         gameController = FindObjectOfType<GameController>();
+        __playerModel.DashImage = GameObject.Find("Dash").GetComponent<Image>();
 
+        __lastDash = Time.time - __playerModel.DashCooldown;
+        __lastMeleeTime = Time.time - __playerModel.MeeleCountdown;
     }
 
     // Update is called once per frame
@@ -48,6 +55,24 @@ public class PlayerController : MonoBehaviour
 
         horizontalPressed();
         verticalPressed();
+
+        //input right mouse attack
+        if (Input.GetMouseButtonDown(1))
+        {
+            if (Time.time - __lastMeleeTime > __playerModel.MeeleCountdown)
+            {
+                __animatorMelee.SetTrigger("onAttack");
+                __MeleeCollider.tag = "Bullet";
+                __lastMeleeTime = Time.time;
+                StartCoroutine(ChangeTag("Untagged", 0.5f));
+            }
+        }
+    }
+
+    IEnumerator ChangeTag(string tag, float time)
+    {
+        yield return new WaitForSeconds(time);
+        __MeleeCollider.tag = tag;
     }
 
     void horizontalPressed()
@@ -130,8 +155,9 @@ public class PlayerController : MonoBehaviour
         while (timer < __playerModel.InvunerableTime * duration_porcent)
         {
             __playerSpriteRenderer.enabled = !__playerSpriteRenderer.enabled;
-            yield return new WaitForSeconds(blinkDuration);
-            timer += blinkDuration;
+            yield return new WaitForSeconds(__playerModel.BlinkDuration);
+            __playerModel.DashImage.color = new Color(1, 1, 1, 1f);
+            timer += __playerModel.BlinkDuration;
         }
 
         __playerSpriteRenderer.enabled = true;
@@ -163,13 +189,14 @@ public class PlayerController : MonoBehaviour
     {
         if (__playerModel.DashCooldown < Time.time)
         {
+            __playerModel.DashImage.color = new Color(1, 1, 1, 0.5f);
             __invunerableTime = Time.time;
             StartCoroutine(SpriteBlink(0.3f));
             if (__playerModel.InvunerableEffect != null)
                 AudioSource.PlayClipAtPoint(__playerModel.InvunerableEffect, transform.position);
 
             __transform.Translate(new Vector2(__horizontalPressed ? h * __playerModel.DashSpeed : h, __verticalPressed ? w * __playerModel.DashSpeed : w) * __playerModel.Speed * Time.deltaTime);
-            __dashCooldown = Time.time + __playerModel.DashCooldown;
+            __lastDash = Time.time + __playerModel.DashCooldown;
         }
     }
 }

@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
@@ -12,16 +13,31 @@ public class GameController : MonoBehaviour
 
     private SceneController sceneController;
     private int enemyCount;
-    private GameObject[] enemies; 
+    private GameObject[] enemies;
 
     private int fase;
-    
     private int score = 0;
     private float scoreTimer = 2.0f;
+    private float max_life;
+    public Character character;
+    public string neme_player;
+    private SpriteRenderer __playerSprite;
+    private Image __playerName;
+    private ProfileUI __playerImage;
+    private Animator __playerAnimator;
+    private SpriteRenderer __playerMeleeSprite;
+    private AnimatorOverrideController animatorOverrideController;
 
     void Start()
     {
         __playerModel = FindObjectOfType<PlayerModel>();
+        __playerSprite = GameObject.Find("PlayerSprite").GetComponent<SpriteRenderer>();
+        __playerImage = GameObject.Find("PlayerImage").GetComponent<ProfileUI>();
+        __playerName = GameObject.Find("PlayerName").GetComponent<Image>();
+        __playerAnimator = GameObject.Find("MeeleSprite").GetComponent<Animator>();
+        __playerMeleeSprite = GameObject.Find("MeeleSprite").GetComponent<SpriteRenderer>();
+        animatorOverrideController = new AnimatorOverrideController(__playerAnimator.runtimeAnimatorController);
+
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
         enemyCount = Mathf.Max(enemies.Length / 2, 0);
 
@@ -41,6 +57,43 @@ public class GameController : MonoBehaviour
 
         UpdateGameInfoText();
         UpdateScoreText();
+        CharacterBuild();
+    }
+
+    void CharacterBuild()
+    {
+        neme_player = character.id;
+
+        __playerModel.Life = character.life;
+        max_life = character.life;
+        __playerModel.Speed = character.speed;
+        __playerModel.DashSpeed = character.dashSpeed;
+        __playerModel.DashCooldown = character.dashCooldown;
+        __playerModel.DoubleTapTimeThreshold = character.doubleTapTimeThreshold;
+        __playerModel.InvunerableTime = character.invunerableTime;
+        __playerModel.MeeleAttack = character.meeleAttack;
+        __playerModel.MeeleCountdown = character.meeleCountdown;
+
+
+        __playerModel.HitEffect = character.hitEffect;
+        __playerModel.InvunerableEffect = character.invunerableEffect;
+
+        //Get Prite from Player
+        __playerSprite.sprite = character.idle;
+
+        __playerImage.ProfileMax = character.profileMax;
+        __playerImage.ProfileMed = character.profileMed;
+        __playerImage.ProfileMin = character.profileMin;
+
+        __playerImage.UpdateProfile(character.life, max_life);
+
+        __playerName.sprite = character.uiName;
+
+        // subs a animation "attack" for the animation "meele"s
+        animatorOverrideController = new AnimatorOverrideController(__playerAnimator.runtimeAnimatorController);
+        animatorOverrideController["attack"] = character.meeleAttack;
+        __playerAnimator.runtimeAnimatorController = animatorOverrideController;
+
     }
 
     void Update()
@@ -58,11 +111,11 @@ public class GameController : MonoBehaviour
         scoreTimer -= Time.deltaTime;
         if (scoreTimer <= 0)
         {
-            AdicionarPontos(1); 
-            scoreTimer = 2.0f; 
+            AdicionarPontos(1);
+            scoreTimer = 2.0f;
         }
 
-        if ( __playerModel.Life <= 0)
+        if (__playerModel.Life <= 0)
         {
             GameOver();
         }
@@ -72,12 +125,8 @@ public class GameController : MonoBehaviour
     {
         if (__playerModel != null)
         {
-            float vidaAtual = __playerModel.Life;
-
-            vidaAtual--;
-
-            __playerModel.Life = vidaAtual;
-            UpdateGameInfoText();
+            __playerModel.Life--;
+            __playerImage.UpdateProfile(__playerModel.Life, max_life);
         }
     }
 
@@ -98,7 +147,6 @@ public class GameController : MonoBehaviour
     void Win()
     {
         PlayerPrefs.SetInt("Pontuacao", score);
-        Debug.Log("Pontuação: " + score);
         PlayerPrefs.Save();
         sceneController.LoadScene("WinScene");
     }
@@ -112,14 +160,13 @@ public class GameController : MonoBehaviour
     }
 
     public void InimigoMorto()
+    {
+        enemyCount--;
+        if (enemyCount <= 0)
         {
-            enemyCount--;
-            Debug.Log("Inimigos Restantes: " + enemyCount);
-            if (enemyCount <= 0)
-            {
-                Win();
-            }
+            Win();
         }
+    }
 
     void UpdateGameInfoText()
     {
@@ -131,7 +178,7 @@ public class GameController : MonoBehaviour
             {
                 gameTimer = 0;
             }
-            gameInfoText.text = string.Format("Tempo: {0:00}:{1:00}\nVidas: {2}", min, seg, __playerModel.Life);
+            gameInfoText.text = string.Format("Tempo: {0:00}:{1:00}", min, seg);
         }
     }
 }

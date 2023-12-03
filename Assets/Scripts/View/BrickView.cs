@@ -18,4 +18,12 @@ public class BrickView : MonoBehaviour
             __brickController.TakeDamage(1);
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Bullet"))
+        {
+            __brickController.TakeDamage(1);
+        }
+    }
 }

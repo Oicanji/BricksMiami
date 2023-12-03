@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da03375f87cbe044482c9a5fc88d622d, type: 3}
+  m_Name: Miguel
+  m_EditorClassIdentifier: 
+  id: Miguel
+  walk: {fileID: -1628645561, guid: 154d4a30326951340bfa7c7a2fc5f72f, type: 3}
+  idle: {fileID: -1628645561, guid: 154d4a30326951340bfa7c7a2fc5f72f, type: 3}
+  profileMax: {fileID: 1301799088, guid: 3ac633333abc79148bd56605da0c20fa, type: 3}
+  profileMed: {fileID: 2125251361, guid: 3ac633333abc79148bd56605da0c20fa, type: 3}
+  profileMin: {fileID: 1596690082, guid: 3ac633333abc79148bd56605da0c20fa, type: 3}
+  uiName: {fileID: -272833132, guid: f87ffed5ce73ba24e8f71c93bc0a077b, type: 3}
+  meeleAttack: {fileID: 7400000, guid: 4dc1828a76405e1458de6fb900336098, type: 2}
+  speed: 3
+  dashSpeed: 26
+  dashCooldown: 5
+  life: 4
+  doubleTapTimeThreshold: 0.5
+  invunerableTime: 10
+  meeleCountdown: 5
+  direction: {x: 0, y: 0}
+  hitEffect: {fileID: 8300000, guid: 79db0a50e37af224abdc6134375cad65, type: 3}
+  invunerableEffect: {fileID: 8300000, guid: 4a87cf5d1141b4d48b05bba6a75f0f6b, type: 3}

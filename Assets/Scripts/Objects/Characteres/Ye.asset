@@ -12,21 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da03375f87cbe044482c9a5fc88d622d, type: 3}
   m_Name: Ye
   m_EditorClassIdentifier: 
-  name: 
-  walk: {fileID: 0}
-  idle: {fileID: 0}
-  profileMax: {fileID: 0}
-  profileMed: {fileID: 0}
-  profileMin: {fileID: 0}
-  uiName: {fileID: 0}
-  meeleAttack: {fileID: 0}
-  speed: 0
-  dashSpeed: 0
-  dashCooldown: 4
-  life: 0
-  doubleTapTimeThreshold: 0.5
-  invunerableTime: 10
-  meeleCountdown: 10
+  id: Kayne West
+  walk: {fileID: 126947259, guid: 154d4a30326951340bfa7c7a2fc5f72f, type: 3}
+  idle: {fileID: 126947259, guid: 154d4a30326951340bfa7c7a2fc5f72f, type: 3}
+  profileMax: {fileID: 1668445878, guid: bb645d4cd9d140b459c175ae1b0b0ca9, type: 3}
+  profileMed: {fileID: 797853905, guid: bb645d4cd9d140b459c175ae1b0b0ca9, type: 3}
+  profileMin: {fileID: 168173949, guid: bb645d4cd9d140b459c175ae1b0b0ca9, type: 3}
+  uiName: {fileID: -240747387, guid: f87ffed5ce73ba24e8f71c93bc0a077b, type: 3}
+  meeleAttack: {fileID: 7400000, guid: a6b013cf25cc75143946ae54b0dab7e9, type: 2}
+  speed: 7
+  dashSpeed: 15
+  dashCooldown: 500
+  life: 3
+  doubleTapTimeThreshold: 0.4
+  invunerableTime: 3
+  meeleCountdown: 1
   direction: {x: 0, y: 0}
-  hitEffect: {fileID: 0}
-  invunerableEffect: {fileID: 0}
+  hitEffect: {fileID: 8300000, guid: 590457b1f1f4a124799c82d769fc7abc, type: 3}
+  invunerableEffect: {fileID: 8300000, guid: 4a87cf5d1141b4d48b05bba6a75f0f6b, type: 3}
