@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da03375f87cbe044482c9a5fc88d622d, type: 3}
   m_Name: Miguel
   m_EditorClassIdentifier: 
-  id: Miguel
+  id: miguel
   walk: {fileID: -1628645561, guid: 154d4a30326951340bfa7c7a2fc5f72f, type: 3}
   idle: {fileID: -1628645561, guid: 154d4a30326951340bfa7c7a2fc5f72f, type: 3}
   profileMax: {fileID: 1301799088, guid: 3ac633333abc79148bd56605da0c20fa, type: 3}
@@ -23,7 +23,7 @@ MonoBehaviour:
   speed: 3
   dashSpeed: 26
   dashCooldown: 5
-  life: 8
+  life: 5
   doubleTapTimeThreshold: 0.5
   invunerableTime: 10
   meeleCountdown: 5

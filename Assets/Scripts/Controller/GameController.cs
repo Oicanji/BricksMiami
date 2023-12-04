@@ -19,14 +19,21 @@ public class GameController : MonoBehaviour
     private int score = 0;
     private float scoreTimer = 2.0f;
     private float max_life;
-    public Character character;
-    public string neme_player;
+    private Character character;
+    public Character[] characters;
+    public string name_player;
+    public string name_weapon;
     private SpriteRenderer __playerSprite;
     private Image __playerName;
     private ProfileUI __playerImage;
     private Animator __playerAnimator;
     private SpriteRenderer __playerMeleeSprite;
     private AnimatorOverrideController animatorOverrideController;
+    public Sprite PistolUI;
+    public Sprite ShotgunUI;
+    public Sprite MissileUI;
+    public Sprite AKUI;
+    private Image IcoGun;
 
     void Start()
     {
@@ -37,7 +44,8 @@ public class GameController : MonoBehaviour
         __playerAnimator = GameObject.Find("MeeleSprite").GetComponent<Animator>();
         __playerMeleeSprite = GameObject.Find("MeeleSprite").GetComponent<SpriteRenderer>();
         animatorOverrideController = new AnimatorOverrideController(__playerAnimator.runtimeAnimatorController);
-        //animatorOverrideController = __playerAnimator.runtimeAnimatorController as AnimatorOverrideController;
+
+        IcoGun = GameObject.Find("IcoGun").GetComponent<Image>();
 
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
         enemyCount = Mathf.Max(enemies.Length, 0);
@@ -58,13 +66,63 @@ public class GameController : MonoBehaviour
 
         UpdateGameInfoText();
         UpdateScoreText();
+
+        if (!PlayerPrefs.HasKey("characterName"))
+        {
+            PlayerPrefs.SetString("characterName", "player");
+            PlayerPrefs.Save();
+        }
+        name_player = PlayerPrefs.GetString("characterName");
+        if (!PlayerPrefs.HasKey("weaponName"))
+        {
+            PlayerPrefs.SetString("weaponName", "pistol");
+            PlayerPrefs.Save();
+        }
+        name_weapon = PlayerPrefs.GetString("weaponName");
+
+        foreach (Character c in characters)
+        {
+            if (c.id == name_player)
+            {
+                character = c;
+                break;
+            }
+        }
+
+        GameObject pistol = GameObject.Find("Pistol");
+        pistol.SetActive(false);
+        GameObject shotgun = GameObject.Find("Shotgun");
+        shotgun.SetActive(false);
+        GameObject missile = GameObject.Find("MissileGun");
+        missile.SetActive(false);
+        GameObject ak = GameObject.Find("AK");
+        ak.SetActive(false);
+
+        switch (name_weapon)
+        {
+            case "pistol":
+                pistol.SetActive(true);
+                IcoGun.sprite = PistolUI;
+                break;
+            case "shotgun":
+                shotgun.SetActive(true);
+                IcoGun.sprite = ShotgunUI;
+                break;
+            case "missile":
+                missile.SetActive(true);
+                IcoGun.sprite = MissileUI;
+                break;
+            case "ak":
+                ak.SetActive(true);
+                IcoGun.sprite = AKUI;
+                break;
+        }
+
         CharacterBuild();
     }
 
     void CharacterBuild()
     {
-        neme_player = character.id;
-
         __playerModel.Life = character.life;
         max_life = character.life;
         __playerModel.Speed = character.speed;

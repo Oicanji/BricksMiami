@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da03375f87cbe044482c9a5fc88d622d, type: 3}
   m_Name: Player
   m_EditorClassIdentifier: 
-  id: Player
+  id: player
   walk: {fileID: -1073693714, guid: 154d4a30326951340bfa7c7a2fc5f72f, type: 3}
   idle: {fileID: -1073693714, guid: 154d4a30326951340bfa7c7a2fc5f72f, type: 3}
   profileMax: {fileID: 1478940680, guid: 3ac633333abc79148bd56605da0c20fa, type: 3}

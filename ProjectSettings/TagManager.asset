@@ -8,6 +8,7 @@ TagManager:
   - Breakable
   - Bullet
   - Enemy
+  - Card
   layers:
   - Default
   - TransparentFX

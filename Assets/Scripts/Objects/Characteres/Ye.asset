@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da03375f87cbe044482c9a5fc88d622d, type: 3}
   m_Name: Ye
   m_EditorClassIdentifier: 
-  id: Kayne West
+  id: ye
   walk: {fileID: 126947259, guid: 154d4a30326951340bfa7c7a2fc5f72f, type: 3}
   idle: {fileID: 126947259, guid: 154d4a30326951340bfa7c7a2fc5f72f, type: 3}
   profileMax: {fileID: 1668445878, guid: bb645d4cd9d140b459c175ae1b0b0ca9, type: 3}
