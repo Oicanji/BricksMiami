@@ -12,11 +12,9 @@ public class GameController : MonoBehaviour
     [SerializeField] TextMeshProUGUI scoreText;
 
     private SceneController sceneController;
-    private int enemyCount;
-    private GameObject[] enemies;
-
-    private int fase;
-    private int score = 0;
+    public int enemyCount;
+    public GameObject[] enemies;
+    public int score = 0;
     private float scoreTimer = 2.0f;
     private float max_life;
     private Character character;
@@ -34,6 +32,7 @@ public class GameController : MonoBehaviour
     public Sprite MissileUI;
     public Sprite AKUI;
     private Image IcoGun;
+    public string nextScene;
 
     void Start()
     {
@@ -168,7 +167,10 @@ public class GameController : MonoBehaviour
         scoreTimer -= Time.deltaTime;
         if (scoreTimer <= 0)
         {
-            AdicionarPontos(1);
+            if (score > 0)
+            {
+                score--;
+            }
             scoreTimer = 2.0f;
         }
 
@@ -187,12 +189,6 @@ public class GameController : MonoBehaviour
         }
     }
 
-    void AdicionarPontos(int pontos)
-    {
-        score += pontos;
-        UpdateScoreText();
-    }
-
     void UpdateScoreText()
     {
         if (scoreText != null)
@@ -203,9 +199,10 @@ public class GameController : MonoBehaviour
 
     void Win()
     {
-        PlayerPrefs.SetInt("Pontuacao", score);
+        int score_before = PlayerPrefs.GetInt("points");
+        PlayerPrefs.SetInt("points", score + score_before);
         PlayerPrefs.Save();
-        sceneController.LoadScene("win_scene");
+        sceneController.LoadScene(nextScene);
     }
 
     public void GameOver()
@@ -216,9 +213,10 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public void InimigoMorto()
+    public void EnemyDead()
     {
         enemyCount--;
+        print(enemyCount);
         if (enemyCount <= 0)
         {
             Win();

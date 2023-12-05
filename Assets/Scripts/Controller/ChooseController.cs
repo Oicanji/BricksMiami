@@ -22,6 +22,9 @@ public class ChooseController : MonoBehaviour
     public Sprite kayneImage;
     void Start()
     {
+        //reset points
+        PlayerPrefs.SetInt("points", 0);
+
         playerCard = GameObject.Find("Player");
         playerSelect = GameObject.Find("SelectPlayer");
         yeCard = GameObject.Find("Ye");

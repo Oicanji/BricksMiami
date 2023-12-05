@@ -51,7 +51,7 @@ MonoBehaviour:
   bullet: {fileID: 6000860187536111043, guid: 6f4a97e02a0d08d45875272eefec5b2c, type: 3}
   shotSound: {fileID: 8300000, guid: f10d101bd83ef064983d5321dbe22aea, type: 3}
   reloadSound: {fileID: 8300000, guid: 092025e9a3865ac4d9fe25a54f137fc7, type: 3}
-  fireRate: 3
+  fireRate: 1
   bullets: 3
   reloadTime: 24
 --- !u!114 &1524446369440574543
@@ -1154,8 +1154,8 @@ MonoBehaviour:
   shotSound: {fileID: 8300000, guid: f10d101bd83ef064983d5321dbe22aea, type: 3}
   reloadSound: {fileID: 8300000, guid: 092025e9a3865ac4d9fe25a54f137fc7, type: 3}
   fireRate: 0.025
-  bullets: 13
-  reloadTime: 10
+  bullets: 9
+  reloadTime: 4
 --- !u!114 &2897025078962463300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1823,7 +1823,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5380038178397198735
 Transform:
   m_ObjectHideFlags: 0
@@ -2373,12 +2373,12 @@ GameObject:
   - component: {fileID: 7977259856908139935}
   - component: {fileID: 9003232076526273242}
   m_Layer: 0
-  m_Name: MisseleGun
+  m_Name: MissileGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7977259856908139935
 Transform:
   m_ObjectHideFlags: 0
@@ -2507,7 +2507,7 @@ MonoBehaviour:
   bullet: {fileID: 6000860187536111043, guid: 6f4a97e02a0d08d45875272eefec5b2c, type: 3}
   shotSound: {fileID: 8300000, guid: f10d101bd83ef064983d5321dbe22aea, type: 3}
   reloadSound: {fileID: 8300000, guid: 092025e9a3865ac4d9fe25a54f137fc7, type: 3}
-  fireRate: 3
+  fireRate: 1
   bullets: 3
   reloadTime: 24
 --- !u!114 &3975708541297233698
@@ -2718,7 +2718,7 @@ Transform:
   m_GameObject: {fileID: 5659572752616284997}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.120400004, y: 0.009399987, z: 0}
+  m_LocalPosition: {x: -0.120400004, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2766,7 +2766,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 711130129, guid: 2a14a5befa8004247959325529f91660, type: 3}
+  m_Sprite: {fileID: 2037899140, guid: 2a14a5befa8004247959325529f91660, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2860,7 +2860,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.0082014445, y: 0.26347563}
@@ -3376,6 +3376,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2690513988696072607}
+  - {fileID: 702096980063348312}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1287602523435660621
@@ -3448,6 +3449,7 @@ MonoBehaviour:
   __meeleCountdown: 10
   __blinkDuration: 0.1
   __dashImage: {fileID: 0}
+  __meleeImage: {fileID: 0}
   __meleeAttack: {fileID: 0}
 --- !u!114 &5194227820553729020
 MonoBehaviour:
@@ -3486,7 +3488,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 1000
   m_LinearDrag: 10
   m_AngularDrag: 10
   m_GravityScale: 0
@@ -3883,7 +3885,7 @@ MonoBehaviour:
   bullet: {fileID: 6000860187536111043, guid: 6f4a97e02a0d08d45875272eefec5b2c, type: 3}
   shotSound: {fileID: 8300000, guid: f10d101bd83ef064983d5321dbe22aea, type: 3}
   reloadSound: {fileID: 8300000, guid: 092025e9a3865ac4d9fe25a54f137fc7, type: 3}
-  fireRate: 3
+  fireRate: 1
   bullets: 3
   reloadTime: 24
 --- !u!114 &7723051662231431312
@@ -4302,6 +4304,50 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &7935258274502681728
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 702096980063348312}
+  - component: {fileID: 6168261028408044718}
+  m_Layer: 5
+  m_Name: BussuleInternal
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &702096980063348312
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7935258274502681728}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.03, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6162575203795463230}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6168261028408044718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7935258274502681728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8204e4596414034e95076b1a41b3005, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7969059362081195143
 GameObject:
   m_ObjectHideFlags: 0
@@ -4318,7 +4364,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1970321602646042627
 Transform:
   m_ObjectHideFlags: 0
@@ -4328,8 +4374,8 @@ Transform:
   m_GameObject: {fileID: 7969059362081195143}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.178, y: 0.2129, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalPosition: {x: 0.178, y: 0.287, z: 0}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7435050331010631988}
@@ -4443,7 +4489,7 @@ MonoBehaviour:
   bullet: {fileID: 6000860187536111043, guid: 6f4a97e02a0d08d45875272eefec5b2c, type: 3}
   shotSound: {fileID: 8300000, guid: f10d101bd83ef064983d5321dbe22aea, type: 3}
   reloadSound: {fileID: 8300000, guid: 092025e9a3865ac4d9fe25a54f137fc7, type: 3}
-  fireRate: 3
+  fireRate: 1
   bullets: 3
   reloadTime: 24
 --- !u!114 &4158120353677069243
@@ -4678,7 +4724,7 @@ MonoBehaviour:
   bullet: {fileID: 6000860187536111043, guid: 6f4a97e02a0d08d45875272eefec5b2c, type: 3}
   shotSound: {fileID: 8300000, guid: f10d101bd83ef064983d5321dbe22aea, type: 3}
   reloadSound: {fileID: 8300000, guid: 092025e9a3865ac4d9fe25a54f137fc7, type: 3}
-  fireRate: 3
+  fireRate: 1
   bullets: 3
   reloadTime: 24
 --- !u!114 &6036076219046195553

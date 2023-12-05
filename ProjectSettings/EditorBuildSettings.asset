@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/warning.unity
     guid: 8722bcfa05bd9e149b543dfa4e1a8516
   - enabled: 1
-    path: Assets/Scenes/level_1.unity
+    path: Assets/Scenes/level_3.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/game_over.unity
@@ -29,4 +29,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/select_character.unity
     guid: 518d8101bdfecbe41bd4c185e40ee572
+  - enabled: 1
+    path: Assets/Scenes/level_2.unity
+    guid: 10bbf30f714d30b439fae55bd64f56ce
+  - enabled: 1
+    path: Assets/Scenes/level_1.unity
+    guid: 839084f5e3fb9b7448f9758c416f5495
   m_configObjects: {}

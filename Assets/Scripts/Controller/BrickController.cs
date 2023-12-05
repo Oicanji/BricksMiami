@@ -22,12 +22,18 @@ public class BrickController : MonoBehaviour
         if (__brickModel.Life <= 0)
         {
             if (__brickModel.BreakEffect != null)
+            {
                 AudioSource.PlayClipAtPoint(__brickModel.BreakEffect, transform.position);
-
-            Destroy(gameObject);
+            }
+            print(gameObject.tag);
             if (gameObject.CompareTag("Enemy"))
             {
-                FindObjectOfType<GameController>().InimigoMorto();       
+                FindObjectOfType<GameController>().score += 25;
+                FindObjectOfType<GameController>().EnemyDead();
+            }
+            else
+            {
+                FindObjectOfType<GameController>().score += 5;
             }
             if (__brickModel.SpawnObjectOnDestroy != null)
             {
@@ -37,7 +43,7 @@ public class BrickController : MonoBehaviour
                     spawn.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
                 }
             }
-            return;
+            Destroy(gameObject);
         }
         if (__brickModel.HitEffect != null)
             AudioSource.PlayClipAtPoint(__brickModel.HitEffect, transform.position);
