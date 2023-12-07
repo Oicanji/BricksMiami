@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 5250588356029419283}
   - component: {fileID: 2542707541805260775}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: ShotgunBullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33,7 +33,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -80,7 +80,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 1112877350, guid: 10785879614053b408a33467717d12ce, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.8679245, g: 0.09416164, b: 0.09416164, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -115,10 +115,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a280d588a1252244fa2b39810d87f190, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  __speed: 8
+  __speed: 24
   __maxTimeLife: 500
   __power: 12
-  __limitFragmentation: 5
+  __limitFragmentation: 1
   __direction: {x: 1, y: 1}
   __fragmentEffect: {fileID: 8300000, guid: 519862092ec14cd4d86f9799f04909c5, type: 3}
   __fragmentEndEffect: {fileID: 8300000, guid: f10d101bd83ef064983d5321dbe22aea, type: 3}
@@ -149,7 +149,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
-  m_Pitch: 1
+  m_Pitch: -2.6
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -291,6 +291,6 @@ Rigidbody2D:
     serializedVersion: 2
     m_Bits: 0
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 0

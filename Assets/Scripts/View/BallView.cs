@@ -37,22 +37,10 @@ public class BallView : MonoBehaviour
         {
             AudioSource.PlayClipAtPoint(__ballController.__ballModel.FragmentEffect, transform.position);
         }
-        print(collision.gameObject.tag);
         if (collision.gameObject.CompareTag("Player"))
         {
             Vector2 direction = __ballController.CalcBallAngleReflect(collision);
             __ballController.AngleChange(direction);
-        }
-        else if (collision.gameObject.CompareTag("BreakableWall"))
-        {
-            Vector3 hitPosition = collision.contacts[0].point;
-            // print(collision.contacts.Length);
-            // print(collision.contacts[0].point);
-            // print(collision.contacts[0].point.x);
-            // print(collision.contacts[0].point.y);
-            tileController.RemoveTileAtPosition(hitPosition);
-
-            __ballController.PerfectAngleReflect(collision);
         }
         else
         {

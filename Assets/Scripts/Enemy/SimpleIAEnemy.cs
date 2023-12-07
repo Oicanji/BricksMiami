@@ -32,16 +32,40 @@ public class SimpleIAEnemy : MonoBehaviour
             // Realiza o Raycast à frente do inimigo na direção do movimento
             RaycastHit2D hit = Physics2D.Raycast(transform.position, direction.normalized, obstacleDetectionDistance, obstacleLayer);
 
-            if (hit.collider == null)
+            if (hit.collider != null && hit.collider.CompareTag("Wall"))
+            {
+                // Se o Raycast atingir um objeto com a tag "Wall", ajusta a direção do movimento
+                Vector2 newDirection = Vector2.Perpendicular(direction).normalized;
+                hit = Physics2D.Raycast(transform.position, newDirection, obstacleDetectionDistance, obstacleLayer);
+
+                if (hit.collider == null)
+                {
+                    // Se a nova direção não colidir com a parede, muda a direção de movimento
+                    movement = newDirection;
+                }
+                else
+                {
+                    // Se a nova direção também colidir, tenta a direção oposta
+                    newDirection = -newDirection;
+                    hit = Physics2D.Raycast(transform.position, newDirection, obstacleDetectionDistance, obstacleLayer);
+
+                    if (hit.collider == null)
+                    {
+                        // Se a direção oposta não colidir, muda a direção de movimento
+                        movement = newDirection;
+                    }
+                    else
+                    {
+                        // Se ambas as direções colidirem, para de se mover
+                        movement = Vector2.zero;
+                    }
+                }
+            }
+            else
             {
                 float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
                 rb.rotation = angle;
                 movement = direction.normalized;
-            }
-            else
-            {
-                // Se houver um obstáculo, para de se mover na direção do jogador
-                movement = Vector2.zero;
             }
         }
         else

@@ -12,12 +12,22 @@ public class TileController : MonoBehaviour
         __tilemap = GetComponent<Tilemap>();
     }
 
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Bullet"))
+        {
+            RemoveTileAtPosition(collision.transform.position);
+        }
+    }
+
     public void RemoveTileAtPosition(Vector3 position)
     {
         Vector2 raycastDirection = Vector2.up; // Ajuste a direção do raycast conforme necessário para o seu Tilemap
-        RaycastHit2D hit = Physics2D.Raycast(position, raycastDirection);
+        float raycastDistance = 1f; // Ajuste a distância do raycast conforme necessário para o seu Tilemap
 
-        if (hit.collider != null)
+        RaycastHit2D[] hits = Physics2D.RaycastAll(position, raycastDirection, raycastDistance);
+
+        foreach (RaycastHit2D hit in hits)
         {
             Tilemap hitTilemap = hit.collider.GetComponent<Tilemap>();
             if (hitTilemap != null)
@@ -33,6 +43,7 @@ public class TileController : MonoBehaviour
                 }
             }
         }
+
         print("No Tile Found at Position!");
     }
 
