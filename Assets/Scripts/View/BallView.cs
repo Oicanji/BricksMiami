@@ -6,10 +6,12 @@ public class BallView : MonoBehaviour
 {
     public BallController __ballController;
     public float totalCollision = 0;
+    private TileController tileController;
 
     // Start is called before the first frame update
     void Start()
     {
+        tileController = GameObject.Find("WallsBreak").GetComponent<TileController>();
         __ballController = GetComponent<BallController>();
     }
 
@@ -35,7 +37,6 @@ public class BallView : MonoBehaviour
         {
             AudioSource.PlayClipAtPoint(__ballController.__ballModel.FragmentEffect, transform.position);
         }
-
         if (collision.gameObject.CompareTag("Player"))
         {
             Vector2 direction = __ballController.CalcBallAngleReflect(collision);

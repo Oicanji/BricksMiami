@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerModel : MonoBehaviour
 {
@@ -13,7 +14,44 @@ public class PlayerModel : MonoBehaviour
     [SerializeField] private Vector2 __direction;
     [SerializeField] private AudioClip __hitEffect;
     [SerializeField] private AudioClip __invunerableEffect;
+    [SerializeField] private AnimationClip __meeleAttack;
+    [SerializeField] private float __meeleCountdown = 10f;
+    [SerializeField] private float __blinkDuration = 0.1f;
+    [SerializeField] private Image __dashImage;
 
+    [SerializeField] private Image __meleeImage;
+    [SerializeField] private AnimationClip __meleeAttack;
+
+    public Image MeleeImage
+    {
+        get => __meleeImage;
+        set => __meleeImage = value;
+    }
+    public AnimationClip MeleeAttack
+    {
+        get => __meleeAttack;
+        set => __meleeAttack = value;
+    }
+    public float BlinkDuration
+    {
+        get => __blinkDuration;
+        set => __blinkDuration = value;
+    }
+    public Image DashImage
+    {
+        get => __dashImage;
+        set => __dashImage = value;
+    }
+    public float MeeleCountdown
+    {
+        get => __meeleCountdown;
+        set => __meeleCountdown = value;
+    }
+    public AnimationClip MeeleAttack
+    {
+        get => __meeleAttack;
+        set => __meeleAttack = value;
+    }
     public AudioClip InvunerableEffect
     {
         get => __invunerableEffect;
@@ -46,13 +84,11 @@ public class PlayerModel : MonoBehaviour
         get => __speed;
         set => __speed = value;
     }
-
     public float Life
     {
         get => __life;
         set => __life = value;
     }
-
     public Vector2 Direction
     {
         get => __direction;

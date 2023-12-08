@@ -12,18 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da03375f87cbe044482c9a5fc88d622d, type: 3}
   m_Name: Player
   m_EditorClassIdentifier: 
-  name: 
-  walk: {fileID: 0}
-  idle: {fileID: 0}
-  profile: {fileID: 0}
-  meeleAttack: {fileID: 0}
-  speed: 0
-  dashSpeed: 0
-  dashCooldown: 4
-  life: 0
+  id: player
+  walk: {fileID: -1073693714, guid: 154d4a30326951340bfa7c7a2fc5f72f, type: 3}
+  idle: {fileID: -1073693714, guid: 154d4a30326951340bfa7c7a2fc5f72f, type: 3}
+  profileMax: {fileID: 1478940680, guid: 3ac633333abc79148bd56605da0c20fa, type: 3}
+  profileMed: {fileID: -893857895, guid: 3ac633333abc79148bd56605da0c20fa, type: 3}
+  profileMin: {fileID: -692046182, guid: 3ac633333abc79148bd56605da0c20fa, type: 3}
+  uiName: {fileID: 235481646, guid: f87ffed5ce73ba24e8f71c93bc0a077b, type: 3}
+  meeleAttack: {fileID: 7400000, guid: 444f5ab4970686b4bb27019d37b695df, type: 2}
+  speed: 5
+  dashSpeed: 22
+  dashCooldown: 10
+  life: 5
   doubleTapTimeThreshold: 0.5
   invunerableTime: 10
-  meeleCountdown: 10
+  meeleCountdown: 8
   direction: {x: 0, y: 0}
-  hitEffect: {fileID: 0}
-  invunerableEffect: {fileID: 0}
+  hitEffect: {fileID: 8300000, guid: 590457b1f1f4a124799c82d769fc7abc, type: 3}
+  invunerableEffect: {fileID: 8300000, guid: 29422fd4e5632a5408d529612878cb19, type: 3}
+  meeleAttackSprite: {fileID: 7400000, guid: 444f5ab4970686b4bb27019d37b695df, type: 2}

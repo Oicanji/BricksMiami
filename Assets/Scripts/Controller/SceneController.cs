@@ -17,7 +17,7 @@ public class SceneController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Return))
             {
-                LoadScene("level_1");
+                LoadScene("intro");
             }
         }
         else if (level == "game_over")

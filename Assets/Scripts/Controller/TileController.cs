@@ -5,25 +5,46 @@ using UnityEngine.Tilemaps;
 
 public class TileController : MonoBehaviour
 {
-    private Tilemap __tilemap; // Referência para o Tilemap que contém os tiles
+    private Tilemap __tilemap;
 
     void Start()
     {
         __tilemap = GetComponent<Tilemap>();
     }
 
-    // if collision with ball destroy tile
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Bullet"))
         {
-            Vector3 hitPosition = Vector3.zero;
-            foreach (ContactPoint2D hit in collision.contacts)
-            {
-                hitPosition.x = hit.point.x - 0.01f * hit.normal.x;
-                hitPosition.y = hit.point.y - 0.01f * hit.normal.y;
-                __tilemap.SetTile(__tilemap.WorldToCell(hitPosition), null);
-            }
+            RemoveTileAtPosition(collision.transform.position);
         }
     }
+
+    public void RemoveTileAtPosition(Vector3 position)
+    {
+        Vector2 raycastDirection = Vector2.up; // Ajuste a direção do raycast conforme necessário para o seu Tilemap
+        float raycastDistance = 1f; // Ajuste a distância do raycast conforme necessário para o seu Tilemap
+
+        RaycastHit2D[] hits = Physics2D.RaycastAll(position, raycastDirection, raycastDistance);
+
+        foreach (RaycastHit2D hit in hits)
+        {
+            Tilemap hitTilemap = hit.collider.GetComponent<Tilemap>();
+            if (hitTilemap != null)
+            {
+                Vector3Int cellPosition = hitTilemap.WorldToCell(hit.point);
+                TileBase tile = hitTilemap.GetTile(cellPosition);
+
+                if (tile != null)
+                {
+                    hitTilemap.SetTile(cellPosition, null);
+                    print("Tile Removed!");
+                    return;
+                }
+            }
+        }
+
+        print("No Tile Found at Position!");
+    }
+
 }

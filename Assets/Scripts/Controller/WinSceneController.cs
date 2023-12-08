@@ -9,15 +9,12 @@ public class WinSceneController : MonoBehaviour
     
     void Start()
     {
-        int pontuacao = PlayerPrefs.GetInt("Pontuacao", 0);
-        Debug.Log("Pontuação TESTE: " + pontuacao);
-        scoreText = GameObject.Find("Points").GetComponent<TextMeshProUGUI>();
-        scoreText.text = "Pontos: " + pontuacao;
-
+        int points = PlayerPrefs.GetInt("points", 0);
+        Debug.Log("Pontuação TESTE: " + points);
     }
 
     void Update()
     {
-        
+
     }
 }
