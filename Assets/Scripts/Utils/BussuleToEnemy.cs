@@ -10,22 +10,28 @@ public class BussuleToEnemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        BussuleTransform = GameObject.Find("Bussule").transform;
+        GameObject gmBussule = GameObject.Find("Bussule");
+        if (gmBussule != null) BussuleTransform = gmBussule.transform;
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (enemies.Length == 0) // Verificar se há inimigos na cena
-            return;
-
-        GameObject closestEnemy = GetClosestEnemy();
-
-        if (closestEnemy != null && closestEnemy.activeInHierarchy) // Verificar se o inimigo mais próximo existe e está ativo na hierarquia
+        if (
+            enemies != null && // Verificar se a lista de inimigos existe
+            enemies.Length > 0)
         {
-            // Aponta a rotação Z axis para o inimigo mais próximo
-            BussuleTransform.rotation = Quaternion.LookRotation(Vector3.forward, closestEnemy.transform.position - transform.position);
+
+            GameObject closestEnemy = GetClosestEnemy();
+
+            if (closestEnemy != null && closestEnemy.activeInHierarchy
+                && BussuleTransform != null
+            ) // Verificar se o inimigo mais próximo existe e está ativo na hierarquia
+            {
+                // Aponta a rotação Z axis para o inimigo mais próximo
+                BussuleTransform.rotation = Quaternion.LookRotation(Vector3.forward, closestEnemy.transform.position - transform.position);
+            }
         }
     }
 

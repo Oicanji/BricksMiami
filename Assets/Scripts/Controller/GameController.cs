@@ -36,7 +36,7 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-        __playerModel = FindObjectOfType<PlayerModel>();
+        __playerModel = FindFirstObjectByType<PlayerModel>();
         __playerSprite = GameObject.Find("PlayerSprite").GetComponent<SpriteRenderer>();
         __playerImage = GameObject.Find("PlayerImage").GetComponent<ProfileUI>();
         __playerName = GameObject.Find("PlayerName").GetComponent<Image>();
@@ -54,7 +54,7 @@ public class GameController : MonoBehaviour
             Debug.LogError("PlayerModel não encontrado. Certifique-se de que o objeto PlayerModel está ativo na cena.");
             return;
         }
-        sceneController = FindObjectOfType<SceneController>();
+        sceneController = FindFirstObjectByType<SceneController>();
         gameInfoText = GameObject.Find("Temporizer").GetComponent<TextMeshProUGUI>();
         scoreText = GameObject.Find("Points").GetComponent<TextMeshProUGUI>();
 
@@ -90,31 +90,32 @@ public class GameController : MonoBehaviour
 
         GameObject pistol = GameObject.Find("Pistol");
         pistol.SetActive(false);
-        GameObject shotgun = GameObject.Find("Shotgun");
-        shotgun.SetActive(false);
-        GameObject missile = GameObject.Find("MissileGun");
-        missile.SetActive(false);
-        GameObject ak = GameObject.Find("AK");
-        ak.SetActive(false);
+        // GameObject shotgun = GameObject.Find("Shotgun");
+        // shotgun.SetActive(false);
+        // GameObject missile = GameObject.Find("MissileGun");
+        // missile.SetActive(false);
+        // GameObject ak = GameObject.Find("AK");
+        // ak.SetActive(false);
 
         switch (name_weapon)
         {
-            case "pistol":
+            //case "pistol":
+            default:
                 pistol.SetActive(true);
                 IcoGun.sprite = PistolUI;
                 break;
-            case "shotgun":
-                shotgun.SetActive(true);
-                IcoGun.sprite = ShotgunUI;
-                break;
-            case "missile":
-                missile.SetActive(true);
-                IcoGun.sprite = MissileUI;
-                break;
-            case "ak":
-                ak.SetActive(true);
-                IcoGun.sprite = AKUI;
-                break;
+                // case "shotgun":
+                //     shotgun.SetActive(true);
+                //     IcoGun.sprite = ShotgunUI;
+                //     break;
+                // case "missile":
+                //     missile.SetActive(true);
+                //     IcoGun.sprite = MissileUI;
+                //     break;
+                // case "ak":
+                //     ak.SetActive(true);
+                //     IcoGun.sprite = AKUI;
+                //     break;
         }
 
         CharacterBuild();
@@ -215,8 +216,9 @@ public class GameController : MonoBehaviour
 
     public void EnemyDead()
     {
-        enemyCount--;
-        print(enemyCount);
+        //get all enemies
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        enemyCount = enemies.Length - 1;
         if (enemyCount <= 0)
         {
             Win();

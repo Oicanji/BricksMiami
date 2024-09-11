@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     private GameObject __MeleeCollider;
 
     // Start is called before the first frame update
+    [System.Obsolete]
     void Start()
     {
         __playerModel = GetComponent<PlayerModel>();
@@ -31,9 +32,10 @@ public class PlayerController : MonoBehaviour
         __MeleeCollider = __transform.GetChild(0).GetChild(0).GetChild(0).gameObject;
         __cameraModel = Camera.main.GetComponent<CameraModel>();
         gameController = FindObjectOfType<GameController>();
-        __playerModel.DashImage = GameObject.Find("Dash").GetComponent<Image>();
-        __playerModel.MeleeImage = GameObject.Find("Knife").GetComponent<Image>();
-
+        GameObject uiDash = GameObject.Find("Dash");
+        if (uiDash != null) __playerModel.DashImage = uiDash.GetComponent<Image>();
+        GameObject uiMelee = GameObject.Find("Knife");
+        if (uiMelee != null) __playerModel.MeleeImage = uiMelee.GetComponent<Image>();
         __lastDash = Time.time - __playerModel.DashCooldown;
         __lastMeleeTime = Time.time - __playerModel.MeeleCountdown;
     }
